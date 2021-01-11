@@ -14,5 +14,5 @@ This application implements a simple functionality of the to-do list
 	* spring.datasource.username={$username}
 	* spring.datasource.password={$password}
 5. Run the toDoList-1.0.1.jar file:
-	* In the console go to the appropriate directory: "cd Desctop"
-	* Run toDoList-1.0.1.jar: java -jar toDoList-1.0.1.jar
+	* In the console go to the appropriate directory: "cd Desktop"
+	* Run toDoList-1.0.1.jar: "java -jar toDoList-1.0.1.jar"
