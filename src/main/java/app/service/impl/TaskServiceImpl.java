@@ -1,8 +1,8 @@
-package service.impl;
+package app.service.impl;
 
-import model.Task;
-import model.TaskRepository;
-import service.TaskService;
+import app.model.Task;
+import app.model.TaskRepository;
+import app.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

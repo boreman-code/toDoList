@@ -1,7 +1,7 @@
-package controller;
+package app.controller;
 
-import model.Task;
-import service.impl.TaskServiceImpl;
+import app.model.Task;
+import app.service.impl.TaskServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +30,8 @@ public class TaskController {
     }
 
     @PostMapping("/addTask")
-    public String addTask(@ModelAttribute("task") Task task) {
+    public String addTask(@ModelAttribute("task") Task task, Model model) {
+        model.addAttribute("task", task);
         taskService.addTask(task);
         return "redirect:/";
     }
