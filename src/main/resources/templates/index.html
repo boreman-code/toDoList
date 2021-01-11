@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todolist</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="https://use.fontawesome.com/39ff06dbfa.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<!-- Form for task adding -->
+<div id="adding-form" class="form">
+    <form th:method="post" th:action="@{/addTask}" th:object="${task}" >
+        <h2>Adding task</h2>
+        <label>Task content:</label>
+        <input type="text" name="content" value="" th:field="*{content}">
+        <label>Date:</label>
+        <input type="text" name="date" value="" th:field="*{date}">
+        <hr>
+        <button id="add-task" type="submit">Add</button>
+    </form>
+</div>
+
+<h1>ToDoList</h1>
+
+<h4>Date: <span th:text="${today}"></span></h4>
+
+<!-- Button to open the add form -->
+<a id="show-add-task-form">
+    Add task
+</a>
+
+<!-- Button to delete all tasks -->
+<a th:href="@{/delete}" th:text="${size} > 0 ? 'Delete All' : 'Nothing to delete'">
+    Delete all
+</a>
+
+<!-- List of tasks -->
+<div>
+    <table class="table">
+        <tr th:each="task, state : ${tasks}" th:attr="data-id=${task.id}">
+            <!-- Task number -->
+            <td>
+                <p th:text="${state.count}"></p>
+            </td>
+            <!-- Task content -->
+            <td>
+                <p th:utext="${task.content}">Count</p>
+            </td>
+            <!-- Task date -->
+            <td>
+                <p th:text="${task.date}"></p>
+            </td>
+            <!-- Button to edit the selected task -->
+            <td>
+                <a th:href="@{/edit/{id}(id=${task.id})}">
+                    <i class="fa fa-pencil" style="font-size: 20px"></i>
+                </a>
+            </td>
+            <!-- Button to delete the selected task -->
+            <td>
+                <a th:href="@{/delete/{id}(id=${task.id})}">
+                    <i class="fa fa-trash-o" style="font-size: 20px"></i>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

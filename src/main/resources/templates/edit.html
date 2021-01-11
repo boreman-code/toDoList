@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit task</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<!-- Form for task updating -->
+<div class="form edit-form">
+    <form action="#" th:action="@{/update/{id}(id=${newTask.id})}" th:object="${newTask}" method="post">
+        <h2>Edit task</h2>
+        <label>Task content:</label>
+        <input type="text" name="content" value="" th:field="*{content}">
+        <label>Date:</label>
+        <input type="text" name="date" value="" th:field="*{date}">
+        <hr>
+        <button id="edit-task" type="submit">Edit</button>
+    </form>
+</div>
+</body>
+</html>
